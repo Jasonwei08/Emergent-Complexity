@@ -1,0 +1,296 @@
+{
+  "sampleConfig": {
+    "seed": 2026,
+    "cols": 32,
+    "rows": 32,
+    "density": 0.2,
+    "steps": 200,
+    "trials": 3,
+    "states": 2,
+    "noiseLevels": [
+      0
+    ]
+  },
+  "sampleCategories": {
+    "disordered": 209,
+    "stable": 43,
+    "oscillatory": 38,
+    "unclassified": 7,
+    "growing": 3
+  },
+  "interestingRule": "B3678/S045678",
+  "selection": "first sampled trial with terminal period >2, else first oscillatory trial, else first rule",
+  "interestingTrials": [
+    {
+      "rule": "B3678/S045678",
+      "seed": 2654437787,
+      "category": "stable",
+      "terminalPeriod": 1,
+      "firstEmpty": -1,
+      "tailChange": 0,
+      "growth": -0.0107421875
+    },
+    {
+      "rule": "B3678/S045678",
+      "seed": 1013906252,
+      "category": "oscillatory",
+      "terminalPeriod": 4,
+      "firstEmpty": -1,
+      "tailChange": 0.005859375,
+      "growth": -0.009980468749999999
+    },
+    {
+      "rule": "B3678/S045678",
+      "seed": 3668342013,
+      "category": "oscillatory",
+      "terminalPeriod": 2,
+      "firstEmpty": -1,
+      "tailChange": 0.01560546875,
+      "growth": 0.8352734375
+    }
+  ],
+  "noise": [
+    {
+      "rule": "B3/S23",
+      "states": 2,
+      "noise": 0,
+      "trials": 5,
+      "finalDensity": 0.0791015625,
+      "finalDistance": 0,
+      "categories": [
+        "unclassified",
+        "unclassified",
+        "unclassified",
+        "unclassified",
+        "unclassified"
+      ]
+    },
+    {
+      "rule": "B3/S23",
+      "states": 2,
+      "noise": 0.001,
+      "trials": 5,
+      "finalDensity": 0.0478515625,
+      "finalDistance": 0.120703125,
+      "categories": [
+        "unclassified",
+        "unclassified",
+        "unclassified",
+        "unclassified",
+        "unclassified"
+      ]
+    },
+    {
+      "rule": "B3/S23",
+      "states": 2,
+      "noise": 0.01,
+      "trials": 5,
+      "finalDensity": 0.178125,
+      "finalDistance": 0.2259765625,
+      "categories": [
+        "unclassified",
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered"
+      ]
+    },
+    {
+      "rule": "B3/S23",
+      "states": 2,
+      "noise": 0.05,
+      "trials": 5,
+      "finalDensity": 0.31640625,
+      "finalDistance": 0.3376953125,
+      "categories": [
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered"
+      ]
+    },
+    {
+      "rule": "B36/S23",
+      "states": 2,
+      "noise": 0,
+      "trials": 5,
+      "finalDensity": 0.057421875,
+      "finalDistance": 0,
+      "categories": [
+        "oscillatory",
+        "oscillatory",
+        "unclassified",
+        "unclassified",
+        "unclassified"
+      ]
+    },
+    {
+      "rule": "B36/S23",
+      "states": 2,
+      "noise": 0.001,
+      "trials": 5,
+      "finalDensity": 0.071484375,
+      "finalDistance": 0.12421875,
+      "categories": [
+        "unclassified",
+        "unclassified",
+        "unclassified",
+        "unclassified",
+        "unclassified"
+      ]
+    },
+    {
+      "rule": "B36/S23",
+      "states": 2,
+      "noise": 0.01,
+      "trials": 5,
+      "finalDensity": 0.21953125,
+      "finalDistance": 0.248046875,
+      "categories": [
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered"
+      ]
+    },
+    {
+      "rule": "B36/S23",
+      "states": 2,
+      "noise": 0.05,
+      "trials": 5,
+      "finalDensity": 0.35,
+      "finalDistance": 0.371875,
+      "categories": [
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered"
+      ]
+    },
+    {
+      "rule": "B3678/S045678",
+      "states": 2,
+      "noise": 0,
+      "trials": 5,
+      "finalDensity": 0.4162109375,
+      "finalDistance": 0,
+      "categories": [
+        "stable",
+        "oscillatory",
+        "oscillatory",
+        "stable",
+        "oscillatory"
+      ]
+    },
+    {
+      "rule": "B3678/S045678",
+      "states": 2,
+      "noise": 0.001,
+      "trials": 5,
+      "finalDensity": 0.2380859375,
+      "finalDistance": 0.237109375,
+      "categories": [
+        "unclassified",
+        "unclassified",
+        "growing",
+        "unclassified",
+        "unclassified"
+      ]
+    },
+    {
+      "rule": "B3678/S045678",
+      "states": 2,
+      "noise": 0.01,
+      "trials": 5,
+      "finalDensity": 0.619140625,
+      "finalDistance": 0.2419921875,
+      "categories": [
+        "unclassified",
+        "unclassified",
+        "growing",
+        "growing",
+        "growing"
+      ]
+    },
+    {
+      "rule": "B3678/S045678",
+      "states": 2,
+      "noise": 0.05,
+      "trials": 5,
+      "finalDensity": 0.9455078125,
+      "finalDistance": 0.574609375,
+      "categories": [
+        "growing",
+        "growing",
+        "growing",
+        "growing",
+        "growing"
+      ]
+    }
+  ],
+  "generations": [
+    {
+      "rule": "B2/S",
+      "states": 3,
+      "noise": 0,
+      "trials": 5,
+      "finalDensity": 0.001171875,
+      "finalDistance": 0,
+      "categories": [
+        "unclassified",
+        "extinction",
+        "extinction",
+        "extinction",
+        "extinction"
+      ]
+    },
+    {
+      "rule": "B2/S",
+      "states": 3,
+      "noise": 0.001,
+      "trials": 5,
+      "finalDensity": 0.0458984375,
+      "finalDistance": 0.0962890625,
+      "categories": [
+        "unclassified",
+        "unclassified",
+        "unclassified",
+        "disordered",
+        "unclassified"
+      ]
+    },
+    {
+      "rule": "B2/S",
+      "states": 3,
+      "noise": 0.01,
+      "trials": 5,
+      "finalDensity": 0.13046875,
+      "finalDistance": 0.255078125,
+      "categories": [
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered"
+      ]
+    },
+    {
+      "rule": "B2/S",
+      "states": 3,
+      "noise": 0.05,
+      "trials": 5,
+      "finalDensity": 0.198046875,
+      "finalDistance": 0.3935546875,
+      "categories": [
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered",
+        "disordered"
+      ]
+    }
+  ]
+}

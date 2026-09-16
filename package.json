@@ -6,14 +6,17 @@
   "description": "An interactive Conway's Game of Life playground.",
   "scripts": {
     "start": "node server.mjs",
-    "check": "node --check app.js && node --check server.mjs && node --check scripts/build-site.mjs && node --check scripts/check-deployment.mjs",
-    "build": "node scripts/build-site.mjs",
-    "test": "node scripts/build-site.mjs",
+    "check": "node --check app.js && node --check lab.js && node --check experiment-worker.js && node --check life_engine.js && node --check server.mjs && node --check scripts/build.mjs",
+    "build": "node scripts/build.mjs",
+    "build:report": "python scripts/build-report.py",
+    "verify:report": "python scripts/verify-report.py --report-dir build/report",
+    "test": "node scripts/build.mjs --test",
+    "test:integration": "node scripts/integration-test.mjs",
+    "experiments": "node scripts/representative-experiments.mjs",
     "build:site": "node scripts/build-site.mjs",
     "serve:production": "node server.mjs --dir build/wasm/site --base /life-cellular-playground/",
     "test:production": "playwright test",
-    "check:deployment": "node scripts/check-deployment.mjs",
-    "build:debug": "node scripts/build-site.mjs --debug"
+    "check:deployment": "node scripts/check-deployment.mjs"
   },
   "engines": {
     "node": ">=18"

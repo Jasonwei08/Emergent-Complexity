@@ -4,7 +4,7 @@ project(life_engine_cpp CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(life_engine STATIC engine.cpp engine.hpp)
+add_library(life_engine STATIC engine.cpp engine.hpp experiments.cpp experiments.hpp)
 
 add_executable(life main.cpp)
 target_link_libraries(life PRIVATE life_engine)
@@ -37,7 +37,8 @@ if(EMSCRIPTEN)
         COMMAND ${CMAKE_COMMAND} -E make_directory "${SITE_DIR}"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "${SITE_SOURCE}/index.html" "${SITE_SOURCE}/style.css"
-            "${SITE_SOURCE}/app.js" "${SITE_DIR}"
+            "${SITE_SOURCE}/app.js" "${SITE_SOURCE}/lab.js"
+            "${SITE_SOURCE}/experiment-worker.js" "${SITE_DIR}"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<TARGET_FILE:life_web>" "${CMAKE_BINARY_DIR}/web/life_engine.wasm" "${SITE_DIR}"
         COMMAND ${CMAKE_COMMAND} -E touch "${SITE_DIR}/.nojekyll"

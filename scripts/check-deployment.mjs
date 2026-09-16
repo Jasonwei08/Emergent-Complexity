@@ -35,6 +35,8 @@ const expected = [
   "index.html",
   "style.css",
   "app.js",
+  "lab.js",
+  "experiment-worker.js",
   "life_engine.js",
   "life_engine.wasm",
 ].sort();
@@ -57,7 +59,7 @@ assert.deepEqual(
   [...readFileSync(`${upload.with.path}/life_engine.wasm`).subarray(0, 4)],
   [0, 97, 115, 109],
 );
-for (const file of ["index.html", "app.js"]) {
+for (const file of ["index.html", "app.js", "lab.js", "experiment-worker.js"]) {
   const text = readFileSync(`${upload.with.path}/${file}`, "utf8");
   assert.doesNotMatch(
     text,

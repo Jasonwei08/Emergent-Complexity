@@ -1,0 +1,14 @@
+﻿# v2 verification
+
+- Final CMake/Emscripten Release production build passed, including the C++ suite executed as Wasm under Node. Tests cover all independent binary rule bits, all Generations center states and neighbor counts for C=3..8, Brian's Brain, Life/HighLife, seeded noise/replay, population conservation, unique rules, and recurrence equality after a forced hash collision.
+- Wasm API, JSON consumer-schema validation, exact replay and actual worker transport tests passed. HTTP assets returned correctly.
+- Ten headless Edge tests passed at both root and `/life-cellular-playground/`: controls, presets, all-state initialization, 100 sampled rules plus separate controls, worker results, JSON downloads, saved-file import and replay. Real application screenshots are in `report/figures`.
+- Workflow YAML, action pins, permissions, artifact allowlist, JavaScript syntax and Wasm headers passed deployment validation.
+- The final evidence campaign contains 2880 unique trial configurations: 1500 sample, 30 control, 450 binary follow-up/noise and 900 Generations trials. Campaign regenerations were used while completing the export schema. The report generator validates all archived trial records and paired sample grids.
+- LaTeX was compiled using portable Tectonic 0.15.0; final page/reference checks are in `report/verification.json`. Figures use actual exports and application screenshots. There are no experiment-result placeholders.
+
+Warnings and recovered failures: PowerShell blocked npm.ps1, so npm.cmd was used. The sandbox denied some generated-loader and package-cache access and stalled several builds; authorized unrestricted execution and task-specific process cleanup resolved this. Playwright printed NO_COLOR/FORCE_COLOR notices. Tectonic printed a Fontconfig configuration notice and bibliography consistency/rerun notices; the PDF and resolved citations were checked directly. The PDF skill's container-specific artifact marker helper does not exist in this Windows workspace; direct compilation/render verification was used. Intermediate missing-tool/access attempts did not replace the final successful checks.
+
+Limitations: C++ tests ran as Wasm, not a native executable; pdflatex itself was not installed (the source uses standard compatible packages); no independent cross-browser accessibility audit, object/lineage tracking, mathematical critical-threshold proof or public GitHub-hosted deployment was performed. Bounding boxes and centroids have torus seam artifacts, and all-state initialization changes initial active density. Read the full report for finite-experiment limits.
+
+Deployment is manual: commit/push intended files to main, choose GitHub Actions in Settings > Pages, run Build and deploy Pages, approve any environment gate, then verify the reported page_url. The exact workflow and toolchain instructions remain in README.md.

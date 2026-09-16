@@ -8,6 +8,7 @@
 #include <stdexcept>
 
 #include "engine.hpp"
+#include "experiments.hpp"
 
 using emscripten::val;
 
@@ -70,7 +71,50 @@ val jsEvolve(val jsCells) {
     return out;
 }
 
+std::string jsValidate(const std::string& text) {
+    try { return life::Rule::parse(text).notation(); }
+    catch (const std::exception&) { return ""; }
+}
+val jsAdvance(val jsCells, int cols, int rows, const std::string& rule,
+              int states, double noise, std::uint32_t seed) {
+    life::Random random(seed);
+    auto result = life::advance(emscripten::vecFromJSArray<std::uint8_t>(jsCells),
+        cols, rows, {life::Rule::parse(rule), states, noise}, random);
+    val out = val::object();
+    out.set("cells", cellsToUint8Array(result.cells));
+    out.set("births", result.births);
+    out.set("population", result.population);
+    out.set("rngState", random.state);
+    return out;
+}
+val jsRandom(int cols, int rows, double density, std::uint32_t seed) {
+    return cellsToUint8Array(life::randomGrid(cols, rows, density, seed));
+}
+val jsSample(std::uint32_t seed) {
+    val out = val::array();
+    auto rules = life::sampleRules(seed);
+    for (std::size_t i = 0; i < rules.size(); ++i) out.set(i, rules[i].notation());
+    return out;
+}
+std::string jsTrial(const std::string& rule, int states, double noise, int cols,
+                    int rows, double density, int steps, std::uint32_t seed) {
+    life::TrialConfig c{cols, rows, steps, density, seed, {life::Rule::parse(rule), states, noise}, false, {}};
+    return life::trialJson(c, life::runTrial(c));
+}
+
+std::string jsTrialAll(const std::string& rule,int states,double noise,int cols,int rows,double density,int steps,std::uint32_t seed,bool allStates) {
+    life::TrialConfig c{cols,rows,steps,density,seed,{life::Rule::parse(rule),states,noise},false,{}};
+    c.allStates=allStates;return life::trialJson(c,life::runTrial(c));
+}
+val jsRandomAll(int cols,int rows,double density,std::uint32_t seed,int states,bool allStates) {return cellsToUint8Array(life::randomGrid(cols,rows,density,seed,states,allStates));}
 EMSCRIPTEN_BINDINGS(life_module) {
+    emscripten::function("runTrialAll", &jsTrialAll);
+    emscripten::function("randomGridAll", &jsRandomAll);
+    emscripten::function("validateRule", &jsValidate);
+    emscripten::function("advance", &jsAdvance);
+    emscripten::function("randomGrid", &jsRandom);
+    emscripten::function("sampleRules", &jsSample);
+    emscripten::function("runTrial", &jsTrial);
     emscripten::function("patterns", &jsPatterns);
     emscripten::function("createPattern", &jsCreatePattern);
     emscripten::function("evolve", &jsEvolve);

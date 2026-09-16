@@ -6,6 +6,8 @@ const types = new Map([
   ['/index.html', 'text/html; charset=utf-8'],
   ['/style.css', 'text/css; charset=utf-8'],
   ['/app.js', 'text/javascript; charset=utf-8'],
+  ['/lab.js', 'text/javascript; charset=utf-8'],
+  ['/experiment-worker.js', 'text/javascript; charset=utf-8'],
   ['/life_engine.js', 'text/javascript; charset=utf-8'],
   ['/life_engine.wasm', 'application/wasm']
 ]);
