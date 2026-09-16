@@ -2,6 +2,9 @@
 import { existsSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { resolve } from "node:path";
+const buildType = process.argv.includes("--debug") ? "Debug" : process.env.BUILD_TYPE || "Release";
+if (!["Release", "Debug", "RelWithDebInfo", "MinSizeRel"].includes(buildType))
+  throw Error(`Unsupported BUILD_TYPE: ${buildType}`);
 const windows = process.platform === "win32";
 const localTool = (name, fallback) => {
   const path = `build/tools/${name}/data/bin/${name}${windows ? ".exe" : ""}`;
@@ -35,7 +38,7 @@ run(emcmake, [
   "-G",
   "Ninja",
   `-DCMAKE_MAKE_PROGRAM=${ninja}`,
-  "-DCMAKE_BUILD_TYPE=Release",
+  `-DCMAKE_BUILD_TYPE=${buildType}`,
 ]);
 run(cmake, [
   "--build",

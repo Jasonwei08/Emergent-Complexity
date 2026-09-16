@@ -37,8 +37,7 @@ if(EMSCRIPTEN)
         COMMAND ${CMAKE_COMMAND} -E make_directory "${SITE_DIR}"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "${SITE_SOURCE}/index.html" "${SITE_SOURCE}/style.css"
-            "${SITE_SOURCE}/app.js" "${SITE_SOURCE}/lab.js"
-            "${SITE_SOURCE}/experiment-worker.js" "${SITE_DIR}"
+            "${SITE_SOURCE}/app.js" "${SITE_DIR}"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<TARGET_FILE:life_web>" "${CMAKE_BINARY_DIR}/web/life_engine.wasm" "${SITE_DIR}"
         COMMAND ${CMAKE_COMMAND} -E touch "${SITE_DIR}/.nojekyll"
