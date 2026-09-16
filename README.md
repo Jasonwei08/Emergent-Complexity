@@ -20,7 +20,7 @@ Open http://127.0.0.1:4173 in your browser. To choose a different port, set the 
 - Follow the generation count, population, births, and density.
 - Use Space to play/pause, N to step, and R to reset. Focus the canvas and use arrow keys and Enter to edit cells with the keyboard.
 
-The default grid contains 80 x 48 cells and wraps at its edges; experiment replay can use other dimensions. The default simulation uses Conway's B3/S23 rules: an empty cell with three neighbors is born, and a living cell with two or three neighbors survives. Fading trails are visual only.
+The grid contains 80 × 48 cells and wraps at its edges. The simulation uses Conway's B3/S23 rules: an empty cell with three neighbors is born, and a living cell with two or three neighbors survives. Fading trails are visual only.
 
 ## Files
 
@@ -31,22 +31,17 @@ The default grid contains 80 x 48 cells and wraps at its edges; experiment repla
 - `server.mjs`: dependency-free local preview server
 - `cpp/`: the simulation engine's source of truth — patterns and simulation rules, in C++ (`engine.hpp`/`engine.cpp`), embind bindings for the browser (`wasm_bindings.cpp`), a native CLI demo (`main.cpp`), and tests (`tests.cpp`)
 
-To host the website, serve `index.html`, `style.css`, `app.js`, `lab.js`, `experiment-worker.js`, `life_engine.js`, and `life_engine.wasm` together using any static web host. No credentials, database, or environment secrets are required.
+To host the website, serve `index.html`, `style.css`, `app.js`, `life_engine.js`, and `life_engine.wasm` together using any static web host. No credentials, database, or environment secrets are required.
 
 ### Rebuilding the engine
 
 After changing anything in `cpp/`, regenerate `life_engine.js`/`life_engine.wasm` with the [Emscripten SDK](https://emscripten.org/):
 
 ```sh
-npm run build
+em++ cpp/engine.cpp cpp/wasm_bindings.cpp --bind -O2 -std=c++17 \
+  -s MODULARIZE=1 -s EXPORT_ES6=1 -s ENVIRONMENT=web \
+  -o life_engine.js
 ```
-
-The build script uses `em++` on PATH, `$EMXX` if set, or the SDK at
-`C:/emsdk/upstream/emscripten/em++.exe` on Windows. It compiles `engine.cpp`,
-`experiments.cpp` and `wasm_bindings.cpp` with C++17, exceptions, embind,
-ES-module output and memory growth. Web, worker and Node environments are
-supported by the same generated module. Only source files are hand-edited;
-`life_engine.js` and `life_engine.wasm` are generated artifacts.
 
 To build and run the native CLI demo and test suite instead (no browser involved), see `cpp/CMakeLists.txt`.
 
@@ -57,6 +52,7 @@ npm run check
 ```
 
 Inspired by John Conway's Game of Life (1970).
+<<<<<<< HEAD
 
 
 ## Rule laboratory
@@ -335,3 +331,5 @@ Linux job and public Pages URL have not been executed or verified here. Local
 browser tests used installed Edge; CI is configured to install the Chromium
 revision pinned by Playwright. Manual visual/accessibility review on other
 browsers remains useful.
+=======
+>>>>>>> parent of 7ffab3f (added both latter parts, used Codex to implement part B)

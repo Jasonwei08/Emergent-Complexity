@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 const types = new Map([
+<<<<<<< HEAD
   ["/index.html", "text/html; charset=utf-8"],
   ["/style.css", "text/css; charset=utf-8"],
   ["/app.js", "text/javascript; charset=utf-8"],
@@ -10,6 +11,13 @@ const types = new Map([
   ["/experiment-worker.js", "text/javascript; charset=utf-8"],
   ["/life_engine.js", "text/javascript; charset=utf-8"],
   ["/life_engine.wasm", "application/wasm"],
+=======
+  ['/index.html', 'text/html; charset=utf-8'],
+  ['/style.css', 'text/css; charset=utf-8'],
+  ['/app.js', 'text/javascript; charset=utf-8'],
+  ['/life_engine.js', 'text/javascript; charset=utf-8'],
+  ['/life_engine.wasm', 'application/wasm']
+>>>>>>> parent of 7ffab3f (added both latter parts, used Codex to implement part B)
 ]);
 // Flags make production subpath testing identical on PowerShell and POSIX shells.
 const args = process.argv.slice(2);

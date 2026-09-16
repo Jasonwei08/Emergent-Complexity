@@ -4,7 +4,7 @@ project(life_engine_cpp CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(life_engine STATIC engine.cpp engine.hpp experiments.cpp experiments.hpp)
+add_library(life_engine STATIC engine.cpp engine.hpp)
 
 add_executable(life main.cpp)
 target_link_libraries(life PRIVATE life_engine)

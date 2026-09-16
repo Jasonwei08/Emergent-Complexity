@@ -6,6 +6,7 @@
   "description": "An interactive Conway's Game of Life playground.",
   "scripts": {
     "start": "node server.mjs",
+<<<<<<< HEAD
     "check": "node --check app.js && node --check lab.js && node --check experiment-worker.js && node --check life_engine.js && node --check server.mjs && node --check scripts/build.mjs",
     "build": "node scripts/build.mjs",
     "test": "node scripts/build.mjs --test",
@@ -23,4 +24,9 @@
     "@playwright/test": "1.55.1",
     "yaml": "2.8.3"
   }
+=======
+    "check": "node --check app.js && node --check life_engine.js && node --check server.mjs"
+  },
+  "engines": { "node": ">=18" }
+>>>>>>> parent of 7ffab3f (added both latter parts, used Codex to implement part B)
 }
